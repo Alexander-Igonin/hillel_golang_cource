@@ -55,11 +55,11 @@ func main() {
 		
 		switch v {
 		case "Tiger":
-			race.ResultMessage(place, &race.tiger.animal)
+			race.FinisherMessage(place, &race.tiger.animal)
 		case "Turtle":
-			race.ResultMessage(place, &race.turtle.animal)
+			race.FinisherMessage(place, &race.turtle.animal)
 		case "Fish":
-			race.ResultMessage(place, &race.fish.Animal)
+			race.FinisherMessage(place, &race.fish.Animal)
 		}
 	}
 }
@@ -104,17 +104,6 @@ type Race struct {
 }
 
 
-func (*Animal) FinisherSay(name, voice string) {
-	switch name {
-	case "Tiger":
-		fmt.Printf("%s screams: %s\n", name, voice)
-	case "Turtle":
-		fmt.Printf("%s screams: %s\n", name, voice)
-	case "Fish":
-		fmt.Printf("%s screams: %s\n", name, voice)
-	}
-}
-
 func (r *Race) Start() {
 	var iterations int
 
@@ -146,16 +135,16 @@ func (r *Race) CreateTeam(turtle *Turtle, tiger *Tiger, fish *Fish) {
 	r.turtle = *turtle
 }
 
-func (r *Race) ResultMessage(place int, animal *Animal) {
+func (r *Race) FinisherMessage(place int, animal *Animal) {
 	switch place {
 	case 1:
 		fmt.Printf("The winner is %s. Total iterations: %d\n", animal.name, animal.iterations)
-		animal.FinisherSay(animal.name, animal.winnerVoice)
+		fmt.Printf("%s screams: %s\n", animal.name, animal.winnerVoice)
 	case 2:
 		 fmt.Printf("Second place is %s, Total iterations: %d\n", animal.name, animal.iterations)
 	case 3:
 		 fmt.Printf("Last place is %s, Total iterations: %d\n", animal.name, animal.iterations)
-		 animal.FinisherSay(animal.name, animal.looserVoice)
+		 fmt.Printf("%s screams: %s\n", animal.name, animal.looserVoice)
 	}
 }
 
