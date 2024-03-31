@@ -6,7 +6,7 @@ func (s Str) Generate() interface{} {
 	return s.String
 }
 
-func (s Str) GenerateSlice() interface{} {
+func (s Str) GenerateSlice() []interface{} {
 	var Str Str
 	var result []interface{}
 
