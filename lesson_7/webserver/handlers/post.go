@@ -20,7 +20,7 @@ func HandlePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	req := HandleGetResponse{}
+	req := HandlePostRequest{}
 
 	err = json.Unmarshal(reqBytes, &req)
 	if err != nil {
