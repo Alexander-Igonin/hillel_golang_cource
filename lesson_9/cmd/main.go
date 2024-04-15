@@ -9,16 +9,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type Computer struct {
-	Cpu         string
-	Gpu         string
-	Motherboard string
-	Ram         int
-	Ssd         int
-	PowerBlock  int
-	Water       bool
-}
-
 func main() {
 
 	pc := computer.NewComputer(
